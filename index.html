@@ -7,8 +7,11 @@
 	<link rel="stylesheet" href="">
 </head>
 <body ng-controller="TrippinController">
-	
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-<script type="text/javascript" src="javascript/app.js"></script>
+
+  <input type="text" ng-model="query">
+  <input type="submit" ng-click="search(query)">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script type="text/javascript" src="javascript/app.js"></script>
 </body>
 </html>
