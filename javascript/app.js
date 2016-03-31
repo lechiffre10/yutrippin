@@ -19,6 +19,7 @@
         $scope.lat = results[0].geometry.location.lat();
         $scope.lon = results[0].geometry.location.lng();
       })
+      $scope.soundcloud();
       $scope.fetchPhotos();
     }
     $scope.instagram = function() {
@@ -33,6 +34,11 @@
         $scope.instaPics = $scope.instaPics.map(function(image){
          return image.images.standard_resolution.url;
        })
+      })
+    }
+    $scope.soundcloud = function (){
+      $http.get('http://api.soundcloud.com/tracks?client_id=&tag_list=' + $scope.query +'&q=' + $scope.query).then(function(response){
+        console.log(response);
       })
     }
   })
