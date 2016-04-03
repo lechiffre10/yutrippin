@@ -16,7 +16,7 @@
       <img ng-src="{{ pic }} "></img>
     </div>
     <div id="songs">
-      <button value='play' ng-repeat="sound in sounds" ng-click='sound.play()'></button>
+      <button value='play' ng-repeat="sound in sounds" ng-click='playTrack($index)'></button>
     </div>
   </div>
   <script type="text/javascript" src="javascript/lodash.min.js"></script>
