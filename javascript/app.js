@@ -47,5 +47,9 @@
         console.log($scope.sounds);
       })
     }
+    $scope.playTrack = function(index){
+      soundManager.pauseAll();
+      $scope.sounds[index].play();
+    }
   })
 })();
