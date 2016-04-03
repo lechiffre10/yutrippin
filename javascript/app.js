@@ -38,13 +38,10 @@
     }
     $scope.soundcloud = function (){
       $http.get('http://api.soundcloud.com/tracks?client_id=&tag_list=' + $scope.query +'&q=' + $scope.query).then(function(response){
+      $scope.soundInfo = response.data;
       $scope.sounds =  response.data.map(function(song){
-        return soundManager.createSound({
-          url:song.stream_url + '?client_id='
-        })
+        return song.stream_url + '?client_id='
       })
-        console.log(response);
-        console.log($scope.sounds);
       })
     }
     $scope.playTrack = function(index){
