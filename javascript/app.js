@@ -20,6 +20,7 @@
         $scope.lon = results[0].geometry.location.lng();
       })
       $scope.soundcloud();
+      window.sm2BarPlayers[0].playlistController.refresh();
       $scope.fetchPhotos();
     }
     $scope.instagram = function() {
@@ -38,11 +39,10 @@
     }
     $scope.soundcloud = function (){
       $http.get('http://api.soundcloud.com/tracks?client_id=&tag_list=' + $scope.query +'&q=' + $scope.query).then(function(response){
-      $scope.sounds =  response.data.map(function(song){
-        return soundManager.createSound({
-          url:song.stream_url + '?client_id='
+        $scope.soundInfo = response.data;
+        $scope.sounds =  response.data.map(function(song){
+          return song.stream_url + '?client_id='
         })
-      })
         console.log(response);
         console.log($scope.sounds);
       })
