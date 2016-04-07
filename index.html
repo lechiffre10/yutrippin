@@ -18,9 +18,9 @@
   </div>
   <link rel="stylesheet" type="text/css" href="CSS/bar-ui.css">
   <script type="text/javascript" src="javascript/lodash.min.js"></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/soundmanager2/2.97a.20150601/script/soundmanager2-jsmin.js'></script>
-  <script type="text/javascript" src='javascript/bar-ui.js'></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script type="text/javascript" src='javascript/bower_components/angular-soundmanager2/dist/angular-soundmanager2.js'></script>
+  <script type="text/javascript" src='javascript/bar-ui.js'></script>
   <script type="text/javascript" src="javascript/angular-route.min.js"></script>
   <script type="text/javascript" src="javascript/angular-simple-logger.min.js"></script>
   <script type="text/javascript" src="javascript/angular-google-maps.min.js"></script>
@@ -33,7 +33,7 @@
     }
   });
   </script>
-
+  <sound-manager></sound-manager>
   <div class="sm2-bar-ui full-width fixed">
 
    <div class="bd sm2-main-controls">
@@ -43,7 +43,7 @@
 
     <div class="sm2-inline-element sm2-button-element">
      <div class="sm2-button-bd">
-      <a href="#play" class="sm2-inline-button play-pause">Play / pause</a>
+      <a href="#play" class="sm2-inline-button play-pause" play-pause-toggle>Play / pause</a>
     </div>
   </div>
 
@@ -97,15 +97,6 @@
 </div>
 </div>
 
-<!-- not implemented -->
-  <!--
-  <div class="sm2-inline-element sm2-button-element disabled">
-   <div class="sm2-button-bd">
-    <a href="#shuffle" title="Shuffle" class="sm2-inline-button shuffle">shuffle</a>
-   </div>
-  </div>
--->
-
 <div class="sm2-inline-element sm2-button-element sm2-menu">
  <div class="sm2-button-bd">
   <a href="#menu" class="sm2-inline-button menu">menu</a>
@@ -126,11 +117,10 @@
 
   <ul class="sm2-playlist-bd">
 
-<!-- standard one-line items -->
-<li><a href="http://freshly-ground.com/data/audio/sm2/SonReal%20-%20Let%20Me%20%28Prod%202oolman%29.mp3"><b>SonReal</b> - Let Me <span class="label">Explicit</span></a></li>
-    <li id="songs" ng-repeat="sound in sounds"><a href="{{ sound }}">{{ soundInfo[$index].artist }}</a></li>
-     
-</ul>
+    <!-- standard one-line items -->
+    <li><a href="https://soundcloud.com/ibizaclosing-7/skrillex-live-at-ultra-music-festival-2015-japan-main-stage-20-sep-2015"><b>{{currentPlaying.artist}}</b>{{currentPlaying.title}} <span class="label">Explicit</span></a></li>
+    <li  ng-repeat="sound in sounds" music-player='play'  add-song="sound" type="audio/mp3">{{ sound.artist }}</li>
+  </ul>
 
 </div>
 

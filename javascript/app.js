@@ -1,5 +1,5 @@
 (function (){
-	var app = angular.module('yutrippin', ['uiGmapgoogle-maps', 'ngRoute']);
+	var app = angular.module('yutrippin', ['uiGmapgoogle-maps', 'ngRoute', 'angularSoundManager']);
   app.config(function(uiGmapGoogleMapApiProvider) {
     uiGmapGoogleMapApiProvider.configure({
      key: '',
@@ -20,7 +20,6 @@
         $scope.lon = results[0].geometry.location.lng();
       })
       $scope.soundcloud();
-      window.sm2BarPlayers[0].playlistController.refresh();
       $scope.fetchPhotos();
     }
     $scope.instagram = function() {
@@ -39,17 +38,19 @@
     }
     $scope.soundcloud = function (){
       $http.get('http://api.soundcloud.com/tracks?client_id=&tag_list=' + $scope.query +'&q=' + $scope.query).then(function(response){
-        $scope.soundInfo = response.data;
-        $scope.sounds =  response.data.map(function(song){
-          return song.stream_url + '?client_id='
-        })
-        console.log(response);
-        console.log($scope.sounds);
+            $scope.sounds = response.data.map(function(song){
+            return {
+            id: song.id,
+            title: song.title,
+            artist: song.user.username,
+            url: song.stream_url + '?client_id='
+            }
+        });
       })
     }
     $scope.playTrack = function(index){
       soundManager.pauseAll();
-      $scope.sounds[index].play();
+      window.sm2BarPlayers[0].actions.play(index);
     }
   })
 })();
