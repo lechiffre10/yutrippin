@@ -14,6 +14,7 @@
     $scope.instaPics = [];
     $scope.search = function(query) {
       $scope.query = query;
+      $scope.mixTitle = query;
       var geocoder = new google.maps.Geocoder();
       geocoder.geocode({'address': query}, function(results){
         $scope.lat = results[0].geometry.location.lat();

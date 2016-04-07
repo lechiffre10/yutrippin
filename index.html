@@ -33,8 +33,9 @@
     }
   });
   </script>
+
   <sound-manager></sound-manager>
-  <div class="sm2-bar-ui full-width fixed">
+  <div class="sm2-bar-ui full-width fixed" ng-show="sounds">
 
    <div class="bd sm2-main-controls">
 
@@ -51,22 +52,23 @@
 
    <div class="sm2-playlist">
     <div class="sm2-playlist-target">
-     <!-- playlist <ul> + <li> markup will be injected here -->
-     <!-- if you want default / non-JS content, you can put that here. -->
+       <ul>
+         <li><b>{{currentPlaying.title}}</b><span class="label">{{mixTitle}} Mix</span></li>
+       </ul>
      <noscript><p>JavaScript is required.</p></noscript>
    </div>
  </div>
 
  <div class="sm2-progress">
   <div class="sm2-row">
-    <div class="sm2-inline-time">0:00</div>
+    <div class="sm2-inline-time">{{currentPostion}}</div>
     <div class="sm2-progress-bd">
       <div class="sm2-progress-track">
        <div class="sm2-progress-bar"></div>
-       <div class="sm2-progress-ball"><div class="icon-overlay"></div></div>
+       <div class="sm2-progress-ball" ng-style="{left : ( progress + '%' ) }"><div class="icon-overlay"></div></div>
      </div>
    </div>
-   <div class="sm2-inline-duration">0:00</div>
+   <div class="sm2-inline-duration">{{currentDuration}}</div>
  </div>
 </div>
 
@@ -116,10 +118,7 @@
  <div class="sm2-playlist-wrapper">
 
   <ul class="sm2-playlist-bd">
-
-    <!-- standard one-line items -->
-    <li><a href="https://soundcloud.com/ibizaclosing-7/skrillex-live-at-ultra-music-festival-2015-japan-main-stage-20-sep-2015"><b>{{currentPlaying.artist}}</b>{{currentPlaying.title}} <span class="label">Explicit</span></a></li>
-    <li  ng-repeat="sound in sounds" music-player='play'  add-song="sound" type="audio/mp3">{{ sound.artist }}</li>
+    <li class="song-in-list" ng-repeat="sound in sounds" music-player='play'  add-song="sound" type="audio/mp3"><a><b>{{sound.title}}</b><span class="label">{{mixTitle}} Mix</span></a></li>
   </ul>
 
 </div>

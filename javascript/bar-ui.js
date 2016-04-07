@@ -70,7 +70,7 @@
         players.push(new Player(nodes[i]));
       }
     }
-  
+
   });
 
   /**
@@ -106,7 +106,7 @@
 
     // prepended to tracks when a sound fails to load/play
     extras = {
-      loadFailedCharacter: '<span title="Failed to load/play." class="load-error">✖</span>'
+      loadFailedCharacter: '<span title="Failed to load/play." class="load-error"></span>'
     };
 
     function stopOtherSounds() {
@@ -143,27 +143,6 @@
 
     }
 
-    function setTitle(item) {
-
-      // given a link, update the "now playing" UI.
-
-      // if this is an <li> with an inner link, grab and use the text from that.
-      var links = item.getElementsByTagName('a');
-
-      if (links.length) {
-        item = links[0];
-      }
-
-      // remove any failed character sequence, also
-      dom.playlistTarget.innerHTML = '<ul class="sm2-playlist-bd"><li>' + item.innerHTML.replace(extras.loadFailedCharacter, '') + '</li></ul>';
-
-      if (dom.playlistTarget.getElementsByTagName('li')[0].scrollWidth > dom.playlistTarget.offsetWidth) {
-        // this item can use <marquee>, in fact.
-        dom.playlistTarget.innerHTML = '<ul class="sm2-playlist-bd"><li><marquee>' + item.innerHTML + '</marquee></li></ul>';
-      }
-
-    }
-
     function makeSound(url) {
 
       var sound = soundManager.createSound({
@@ -177,15 +156,15 @@
           var progressMaxLeft = 100,
               left,
               width;
-  
+
           left = Math.min(progressMaxLeft, Math.max(0, (progressMaxLeft * (this.position / this.durationEstimate)))) + '%';
           width = Math.min(100, Math.max(0, (100 * this.position / this.durationEstimate))) + '%';
-  
+
           if (this.duration) {
 
             dom.progress.style.left = left;
             dom.progressBar.style.width = width;
-              
+
             // TODO: only write changes
             dom.time.innerHTML = getTime(this.position, true);
 
@@ -267,7 +246,7 @@
           callback('error');
 
           // load next, possibly with delay.
-            
+
           if (navigator.userAgent.match(/mobile/i)) {
             // mobile will likely block the next play() call if there is a setTimeout() - so don't use one here.
             actions.next();
@@ -306,7 +285,6 @@
 
             playlistController.select(item);
 
-            setTitle(item);
 
             stopOtherSounds();
 
@@ -356,7 +334,6 @@
 
         playlistController.select(link.parentNode);
 
-        setTitle(link.parentNode);
 
         // reset the UI
         // TODO: function that also resets/hides timing info.
@@ -574,7 +551,7 @@
         offset = (offset || 0);
 
         item = getItem(offset);
-        
+
         if (item) {
           playLink(item.getElementsByTagName('a')[0]);
         }
@@ -587,7 +564,7 @@
         var item, url;
 
         item = getItem();
-      
+
         if (item) {
           url = item.getElementsByTagName('a')[0].href;
         }
@@ -902,9 +879,7 @@
 
       playlistController.select(defaultItem);
 
-      if (defaultItem) {
-        setTitle(defaultItem);
-      }
+
 
       utils.events.add(dom.o, 'mousedown', handleMouseDown);
 
@@ -947,7 +922,7 @@
         /**
          * This is an overloaded function that takes mouse/touch events or offset-based item indices.
          * Remember, "auto-play" will not work on mobile devices unless this function is called immediately from a touch or click event.
-         * If you have the link but not the offset, you can also pass a fake event object with a target of an <a> inside the playlist - e.g. { target: someMP3Link }         
+         * If you have the link but not the offset, you can also pass a fake event object with a target of an <a> inside the playlist - e.g. { target: someMP3Link }
          */
 
         var target,
