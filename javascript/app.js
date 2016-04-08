@@ -1,5 +1,5 @@
 (function (){
-	var app = angular.module('yutrippin', ['uiGmapgoogle-maps', 'ngRoute']);
+	var app = angular.module('yutrippin', ['uiGmapgoogle-maps', 'ngRoute', 'angularSoundManager']);
   app.config(function(uiGmapGoogleMapApiProvider) {
     uiGmapGoogleMapApiProvider.configure({
      key: '',
@@ -14,6 +14,7 @@
     $scope.instaPics = [];
     $scope.search = function(query) {
       $scope.query = query;
+      $scope.mixTitle = query;
       var geocoder = new google.maps.Geocoder();
       geocoder.geocode({'address': query}, function(results){
         $scope.lat = results[0].geometry.location.lat();
@@ -38,18 +39,19 @@
     }
     $scope.soundcloud = function (){
       $http.get('http://api.soundcloud.com/tracks?client_id=&tag_list=' + $scope.query +'&q=' + $scope.query).then(function(response){
-      $scope.sounds =  response.data.map(function(song){
-        return soundManager.createSound({
-          url:song.stream_url + '?client_id='
-        })
-      })
-        console.log(response);
-        console.log($scope.sounds);
+            $scope.sounds = response.data.map(function(song){
+            return {
+            id: song.id,
+            title: song.title,
+            artist: song.user.username,
+            url: song.stream_url + '?client_id='
+            }
+        });
       })
     }
     $scope.playTrack = function(index){
       soundManager.pauseAll();
-      $scope.sounds[index].play();
+      window.sm2BarPlayers[0].actions.play(index);
     }
   })
 })();
