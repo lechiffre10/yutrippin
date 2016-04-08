@@ -10,7 +10,7 @@
   <input type="submit" value="authorize insta" ng-click="instagram()">
 
   <input type="text" ng-model="query">
-  <input type="submit" ng-click="search(query)">
+  <input type="submit" ng-click="search(query)" immediate>
   <div id="pics">
     <div ng-repeat= "pic in instaPics">
       <img ng-src="{{ pic }} "></img>
@@ -44,7 +44,7 @@
 
     <div class="sm2-inline-element sm2-button-element">
      <div class="sm2-button-bd">
-      <a href="#play" class="sm2-inline-button play-pause" play-pause-toggle>Play / pause</a>
+      <a href="#play" class="sm2-inline-button play-pause paused" ng-class="{playing: isPlaying}" play-pause-toggle>Play / pause</a>
     </div>
   </div>
 
@@ -63,7 +63,7 @@
   <div class="sm2-row">
     <div class="sm2-inline-time">{{currentPostion}}</div>
     <div class="sm2-progress-bd">
-      <div class="sm2-progress-track">
+      <div class="sm2-progress-track" seek-track>
        <div class="sm2-progress-bar"></div>
        <div class="sm2-progress-ball" ng-style="{left : ( progress + '%' ) }"><div class="icon-overlay"></div></div>
      </div>
@@ -74,28 +74,28 @@
 
 </div>
 
-<div class="sm2-inline-element sm2-button-element sm2-volume">
+<div class="sm2-inline-element sm2-button-element sm2-volume" mute-music>
  <div class="sm2-button-bd">
   <span class="sm2-inline-button sm2-volume-control volume-shade"></span>
-  <a href="#volume" class="sm2-inline-button sm2-volume-control">volume</a>
+  <a class="sm2-inline-button sm2-volume-control" ng-class="{muted: mute, unmuted: !mute}" >volume</a>
 </div>
 </div>
 
 <div class="sm2-inline-element sm2-button-element">
  <div class="sm2-button-bd">
-  <a href="#prev" title="Previous" class="sm2-inline-button previous">&lt; previous</a>
+  <a href="#prev" title="Previous" class="sm2-inline-button previous" prev-track>&lt; previous</a>
 </div>
 </div>
 
 <div class="sm2-inline-element sm2-button-element">
  <div class="sm2-button-bd">
-  <a href="#next" title="Next" class="sm2-inline-button next">&gt; next</a>
+  <a href="#next" title="Next" class="sm2-inline-button next" next-track>&gt; next</a>
 </div>
 </div>
 
 <div class="sm2-inline-element sm2-button-element">
  <div class="sm2-button-bd">
-  <a href="#repeat" title="Repeat playlist" class="sm2-inline-button repeat">&infin; repeat</a>
+  <a href="#repeat" title="Repeat playlist" class="sm2-inline-button repeat" repeat-music>&infin; repeat</a>
 </div>
 </div>
 

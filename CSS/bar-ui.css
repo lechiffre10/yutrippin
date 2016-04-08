@@ -6,52 +6,52 @@
  * http://schillmania.com/projects/soundmanager2/license.txt
  */
 
-.sm2-bar-ui {
- position: relative;
- display: inline-block;
- width: 100%;
- font-family: helvetica, arial, verdana, sans-serif;
- font-weight: normal;
- /* prevent background border bleed */
- -webkit-background-clip: padding-box;
- background-clip: padding-box;
- /* because indeed, fonts do look pretty "fat" otherwise in this case. */
- -moz-osx-font-smoothing: grayscale;
- -webkit-font-smoothing: antialiased;
- /* general font niceness? */
- font-smoothing: antialiased;
- text-rendering: optimizeLegibility;
- min-width: 20em;
- max-width: 30em;
- /* take out overflow if you want an absolutely-positioned playlist dropdown. */
- border-radius: 2px;
- overflow: hidden;
- /* just for fun (animate normal / full-width) */
- transition: max-width 0.2s ease-in-out;
-}
+ .sm2-bar-ui {
+   position: relative;
+   display: inline-block;
+   width: 100%;
+   font-family: helvetica, arial, verdana, sans-serif;
+   font-weight: normal;
+   /* prevent background border bleed */
+   -webkit-background-clip: padding-box;
+   background-clip: padding-box;
+   /* because indeed, fonts do look pretty "fat" otherwise in this case. */
+   -moz-osx-font-smoothing: grayscale;
+   -webkit-font-smoothing: antialiased;
+   /* general font niceness? */
+   font-smoothing: antialiased;
+   text-rendering: optimizeLegibility;
+   min-width: 20em;
+   max-width: 30em;
+   /* take out overflow if you want an absolutely-positioned playlist dropdown. */
+   border-radius: 2px;
+   overflow: hidden;
+   /* just for fun (animate normal / full-width) */
+   transition: max-width 0.2s ease-in-out;
+ }
 
-.sm2-bar-ui .sm2-playlist li {
- text-align: center;
- margin-top: -2px;
- font-size: 95%;
- line-height: 1em;
-}
+ .sm2-bar-ui .sm2-playlist li {
+   text-align: center;
+   margin-top: -2px;
+   font-size: 95%;
+   line-height: 1em;
+ }
 
-.sm2-bar-ui.compact {
- min-width: 1em;
- max-width: 15em;
-}
+ .sm2-bar-ui.compact {
+   min-width: 1em;
+   max-width: 15em;
+ }
 
-.sm2-bar-ui ul {
- line-height: 1em;
-}
+ .sm2-bar-ui ul {
+   line-height: 1em;
+ }
 
-/* want things left-aligned? */
-.sm2-bar-ui.left .sm2-playlist li {
- text-align: left;
-}
+ /* want things left-aligned? */
+ .sm2-bar-ui.left .sm2-playlist li {
+   text-align: left;
+ }
 
-.sm2-bar-ui .sm2-playlist li .load-error {
+ .sm2-bar-ui .sm2-playlist li .load-error {
   cursor: help;
 }
 
@@ -290,8 +290,8 @@
   * if you play with UI width/height, these are the important ones.
   * NOTE: match these values if you want square UI buttons.
   */
- min-width: 2.8em;
- min-height: 2.8em;
+  min-width: 2.8em;
+  min-height: 2.8em;
 }
 
 .sm2-bar-ui .sm2-inline-button {
@@ -471,7 +471,7 @@
  padding: 0px;
 /*
  z-index: 1;
-*/
+ */
  -webkit-transition: -webkit-transform 0.15s ease-in-out;
  transition: transform 0.15s ease-in-out;
 }
@@ -514,32 +514,40 @@
   * image-rendering seems to apply mostly to Firefox in this case. Use with caution.
   * https://developer.mozilla.org/en-US/docs/Web/CSS/image-rendering#Browser_compatibility
   */
- image-rendering: -moz-crisp-edges;
- image-rendering: -webkit-optimize-contrast;
- image-rendering: crisp-edges;
- -ms-interpolation-mode: nearest-neighbor;
- -ms-interpolation-mode: bicubic;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+  -ms-interpolation-mode: bicubic;
 }
 
-.play-pause,
-.play-pause:hover,
-.paused .play-pause:hover {
+
+.paused  {
  background-image: url(../image/icomoon/entypo-25px-ffffff/PNG/play.png);
  background-image: none, url(../image/icomoon/entypo-25px-ffffff/SVG/play.svg);
  background-size: 67.5%;
  background-position: 40% 53%;
 }
 
-.playing .play-pause {
+.playing {
  background-image: url(../image/icomoon/entypo-25px-ffffff/PNG/pause.png);
  background-image: none, url(../image/icomoon/entypo-25px-ffffff/SVG/pause.svg);
  background-size: 57.6%;
  background-position: 50% 53%;
 }
 
-.sm2-volume-control {
- background-image: url(../image/icomoon/entypo-25px-ffffff/PNG/volume.png);
- background-image: none, url(../image/icomoon/entypo-25px-ffffff/SVG/volume.svg);
+.unmuted {
+ background-image: url(../image/icomoon/entypo-25px-ffffff/PNG/volume-on.png);
+ background-image: none, url(../image/icomoon/entypo-25px-ffffff/SVG/volume-on.svg);
+ cursor: pointer;
+ cursor: hand;
+}
+
+.muted {
+  background-image: url(../image/icomoon/entypo-25px-ffffff/PNG/volume-mute.png);
+  background-image: none, url(../image/icomoon/entypo-25px-ffffff/SVG/volume-mute.svg);
+  cursor: pointer;
+  cursor: hand;
 }
 
 .sm2-volume-control,
@@ -548,13 +556,7 @@
  background-size: 56%;
 }
 
-.volume-shade {
- filter: alpha(opacity=33); /* <= IE 8 */
- opacity: 0.33;
-/* -webkit-filter: invert(1);*/
- background-image: url(../image/icomoon/entypo-25px-000000/PNG/volume.png);
- background-image: none, url(../image/icomoon/entypo-25px-000000/SVG/volume.svg);
-}
+
 
 .menu {
  background-image: url(../image/icomoon/entypo-25px-ffffff/PNG/list2.png);
@@ -722,28 +724,28 @@
 @-webkit-keyframes spin {
  0% {
   -webkit-transform: rotate(0deg);
- }
- 100% {
+}
+100% {
   -webkit-transform: rotate(360deg);
- }
+}
 }
 
 @-moz-keyframes spin {
  0% {
   transform: rotate(0deg);
- }
- 100% {
+}
+100% {
   transform: rotate(360deg);
- }
+}
 }
 
 @keyframes spin {
  0% {
   transform: rotate(0deg);
- }
- 100% {
+}
+100% {
   transform: rotate(360deg);
- }
+}
 }
 
 .sm2-element ul {
@@ -924,10 +926,10 @@
   * re: nested relative / absolute elements inside table cells.
   * https://bugzilla.mozilla.org/show_bug.cgi?id=63895
   */
- position: relative;
- display: inline-block;
- width: 100%;
- height: 100%;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
 }
 
 /* some custom scrollbar trickery, where supported */

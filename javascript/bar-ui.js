@@ -684,19 +684,7 @@
 
       }
 
-      if (utils.css.has(target, 'sm2-volume-control')) {
 
-        // drag case for volume
-
-        getActionData(target);
-
-        utils.events.add(document, 'mousemove', actions.adjustVolume);
-        utils.events.add(document, 'mouseup', actions.releaseVolume);
-
-        // and apply right away
-        return actions.adjustVolume(e);
-
-      }
 
     }
 
