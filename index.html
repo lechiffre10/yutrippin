@@ -5,17 +5,70 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
 	<link rel="stylesheet" href="">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+  <link rel="stylesheet" href="CSS/bootstrap-image-gallery.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="bower_components/bootstrap-social/bootstrap-social.css">
+
+
 </head>
 <body ng-controller="TrippinController">
-  <input type="submit" value="authorize insta" ng-click="instagram()">
+<a class="btn btn-social btn-instagram" ng-click="instagram()" ng-hide="auth">
+  <span class="fa fa-instagram"></span>
+  Authorize with Instagram
+</a>
+  <form ng-submit="search(query)" ng-show="auth">
+    <input type="text" ng-model="query">
+    <input type="submit"immediate>
+  </form>
 
-  <input type="text" ng-model="query">
-  <input type="submit" ng-click="search(query)" immediate>
-  <div id="pics">
-    <div ng-repeat= "pic in instaPics">
-      <img ng-src="{{ pic }} "></img>
+<div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
+    <!-- The container for the modal slides -->
+    <div class="slides"></div>
+    <!-- Controls for the borderless lightbox -->
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body next"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left prev">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Previous
+                    </button>
+                    <button type="button" class="btn btn-primary next">
+                        Next
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="links">
+  <div class="row" ng-repeat="slice in slicedPics" >
+    <div ng-repeat="pic in slice" class="col-md-2 nopadding">
+      <a ng-href="{{pic}}" data-gallery>
+        <img class="img img-responsive" ng-src="{{pic}}">
+      </a>
     </div>
   </div>
+</div>
+
+
+
   <link rel="stylesheet" type="text/css" href="CSS/bar-ui.css">
   <script type="text/javascript" src="javascript/lodash.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
@@ -25,6 +78,9 @@
   <script type="text/javascript" src="javascript/angular-simple-logger.min.js"></script>
   <script type="text/javascript" src="javascript/angular-google-maps.min.js"></script>
   <script type="text/javascript" src="javascript/app.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+  <script src="javascript/bootstrap-image-gallery.min.js"></script>
   <script>
   soundManager.setup({
     url: 'javascript/swf',

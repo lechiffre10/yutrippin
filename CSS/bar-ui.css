@@ -1008,3 +1008,12 @@
   cursor: pointer;
   cursor: hand;
 }
+
+.nopadding {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+html, body {
+  background-color: black;
+}
