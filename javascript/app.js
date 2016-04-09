@@ -27,7 +27,7 @@
     }
 
     $scope.instagram = function() {
-      var url = 'https://api.instagram.com/oauth/authorize/?client_id=9911045901584a84bf7ea98824e8ee85&redirect_uri=http://127.0.0.1:8080/&response_type=token';
+      var url = 'https://api.instagram.com/oauth/authorize/?client_id=&redirect_uri=http://127.0.0.1:8080/&response_type=token';
       window.location.replace(url);
     }
 
@@ -45,18 +45,17 @@
         while($scope.instaPics.length) {
           $scope.slicedPics.push($scope.instaPics.splice(0,6));
         }
-        console.log($scope.slicedPics);
       })
     }
 
     $scope.soundcloud = function (){
-      $http.get('http://api.soundcloud.com/tracks?client_id=d53072d1250a3396dfa2b6f9b56cc0b2&tag_list=' + $scope.query +'&q=' + $scope.query).then(function(response){
+      $http.get('http://api.soundcloud.com/tracks?client_id=&tag_list=' + $scope.query +'&q=' + $scope.query).then(function(response){
             $scope.sounds = response.data.map(function(song){
             return {
             id: song.id,
             title: song.title,
             artist: song.user.username,
-            url: song.stream_url + '?client_id=d53072d1250a3396dfa2b6f9b56cc0b2'
+            url: song.stream_url + '?client_id='
             }
         });
       })
