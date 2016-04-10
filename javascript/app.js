@@ -27,7 +27,7 @@
     }
 
     $scope.instagram = function() {
-      var url = 'https://api.instagram.com/oauth/authorize/?client_id=de7a9c72311142369179ad6b5b880031&scope=public_content&redirect_uri=http://127.0.0.1:8080/&response_type=token';
+      var url = 'https://api.instagram.com/oauth/authorize/?client_id=de7a9c72311142369179ad6b5b880031&scope=public_content&redirect_uri=http://yutrippin.herokuapp.com/&response_type=token';
       window.location.replace(url);
     }
 
