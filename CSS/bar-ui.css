@@ -1035,6 +1035,11 @@ html, body {
   width: 100% !important;
   height: auto !important;
   border: 5px solid black;
+  filter: blur(0.5px);
+  -webkit-filter: blur(0.5px);
+  -moz-filter: blur(0.5px);
+  -o-filter: blur(0.5px);
+  -ms-filter: blur(0.5px);
 }
 
 @media (max-width: 1200px) {
