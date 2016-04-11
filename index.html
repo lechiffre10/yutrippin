@@ -51,15 +51,11 @@
     </div>
   </div>
 
-  <div id="links">
-    <div class="row" ng-repeat="slice in slicedPics" >
-      <div ng-repeat="pic in slice" class="col-md-2 nopadding">
-        <a ng-href="{{pic}}" data-gallery>
-          <img class="img img-responsive" ng-src="{{pic}}">
-        </a>
-      </div>
-    </div>
-  </div>
+  <section id="photos" >
+    <a ng-href="{{pic}}" ng-repeat="pic in flickrPics" data-gallery>
+      <img class="img img-responsive"ng-src="{{pic}}">
+    </a>
+  </section>
 
 
 
@@ -176,7 +172,7 @@
 </div>
 
 </div>
-<a href="//www.iubenda.com/privacy-policy/7829534" class="iubenda-white iub-legal-only iubenda-embed" title="Privacy Policy">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+
 
 </body>
 </html>
