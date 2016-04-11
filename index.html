@@ -9,16 +9,10 @@
   <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
   <link rel="stylesheet" href="CSS/bootstrap-image-gallery.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="bower_components/bootstrap-social/bootstrap-social.css">
-
 
 </head>
 <body ng-controller="TrippinController">
-  <a class="btn btn-social btn-instagram" ng-click="instagram()" ng-hide="auth">
-    <span class="fa fa-instagram"></span>
-    Authorize with Instagram
-  </a>
-  <form ng-submit="search(query)" ng-show="auth">
+  <form ng-submit="search(query)">
     <input type="text" ng-model="query">
     <input type="submit"immediate>
   </form>
