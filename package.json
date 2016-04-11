@@ -1,0 +1,19 @@
+{
+  "name": "yutrippin",
+  "version": "5.0.0",
+  "description": "Pictures and Music",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lechiffre10/yutrippin.git"
+  },
+  "author": "Sabri and Ray",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lechiffre10/yutrippin/issues"
+  },
+  "homepage": "https://github.com/lechiffre10/yutrippin#readme"
+}

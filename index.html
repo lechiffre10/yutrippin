@@ -9,21 +9,15 @@
   <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
   <link rel="stylesheet" href="CSS/bootstrap-image-gallery.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="bower_components/bootstrap-social/bootstrap-social.css">
-
 
 </head>
 <body ng-controller="TrippinController">
-<a class="btn btn-social btn-instagram" ng-click="instagram()" ng-hide="auth">
-  <span class="fa fa-instagram"></span>
-  Authorize with Instagram
-</a>
-  <form ng-submit="search(query)" ng-show="auth">
+  <form ng-submit="search(query)">
     <input type="text" ng-model="query">
     <input type="submit"immediate>
   </form>
 
-<div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
+  <div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
     <!-- The container for the modal slides -->
     <div class="slides"></div>
     <!-- Controls for the borderless lightbox -->
@@ -35,37 +29,37 @@
     <ol class="indicator"></ol>
     <!-- The modal dialog, which will be used to wrap the lightbox content -->
     <div class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title"></h4>
-                </div>
-                <div class="modal-body next"></div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left prev">
-                        <i class="glyphicon glyphicon-chevron-left"></i>
-                        Previous
-                    </button>
-                    <button type="button" class="btn btn-primary next">
-                        Next
-                        <i class="glyphicon glyphicon-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" aria-hidden="true">&times;</button>
+            <h4 class="modal-title"></h4>
+          </div>
+          <div class="modal-body next"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left prev">
+              <i class="glyphicon glyphicon-chevron-left"></i>
+              Previous
+            </button>
+            <button type="button" class="btn btn-primary next">
+              Next
+              <i class="glyphicon glyphicon-chevron-right"></i>
+            </button>
+          </div>
         </div>
-    </div>
-</div>
-
-<div id="links">
-  <div class="row" ng-repeat="slice in slicedPics" >
-    <div ng-repeat="pic in slice" class="col-md-2 nopadding">
-      <a ng-href="{{pic}}" data-gallery>
-        <img class="img img-responsive" ng-src="{{pic}}">
-      </a>
+      </div>
     </div>
   </div>
-</div>
+
+  <div id="links">
+    <div class="row" ng-repeat="slice in slicedPics" >
+      <div ng-repeat="pic in slice" class="col-md-2 nopadding">
+        <a ng-href="{{pic}}" data-gallery>
+          <img class="img img-responsive" ng-src="{{pic}}">
+        </a>
+      </div>
+    </div>
+  </div>
 
 
 
@@ -108,9 +102,9 @@
 
    <div class="sm2-playlist">
     <div class="sm2-playlist-target">
-       <ul>
-         <li><b>{{currentPlaying.title}}</b><span class="label">{{mixTitle}} Mix</span></li>
-       </ul>
+     <ul>
+       <li><b>{{currentPlaying.title}}</b><span class="label">{{mixTitle}} Mix</span></li>
+     </ul>
      <noscript><p>JavaScript is required.</p></noscript>
    </div>
  </div>
@@ -182,6 +176,7 @@
 </div>
 
 </div>
+<a href="//www.iubenda.com/privacy-policy/7829534" class="iubenda-white iub-legal-only iubenda-embed" title="Privacy Policy">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
 
 </body>
 </html>
