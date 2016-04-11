@@ -15,7 +15,7 @@
     }
 
     $scope.fetchPhotos = function(){
-      $http.jsonp('https://api.flickr.com/services/rest/?method=flickr.photos.search&text=-virtual -mesh vscocam '+ $scope.query +' -SL&format=json&jsoncallback=JSON_CALLBACK&api_key=d89fbfe1199130026c28dee84a78c7ef&sort=interestingness-desc').then(function(response){
+      $http.jsonp('https://api.flickr.com/services/rest/?method=flickr.photos.search&text=-virtual -mesh vscocam '+ $scope.query +' -SL&format=json&jsoncallback=JSON_CALLBACK&api_key=&sort=interestingness-desc').then(function(response){
         console.log(response);
         $scope.flickrPics = response.data.photos.photo;
         $scope.flickrPics = $scope.flickrPics.map(function(image){
@@ -30,13 +30,13 @@
     }
 
     $scope.soundcloud = function (){
-      $http.get('http://api.soundcloud.com/tracks?client_id=2596b97e0994cfe28ac4f0a9a1f5761a&tag_list=' + $scope.query +'&q=' + $scope.query).then(function(response){
+      $http.get('http://api.soundcloud.com/tracks?client_id=&tag_list=' + $scope.query +'&q=' + $scope.query).then(function(response){
         $scope.sounds = response.data.map(function(song){
           return {
             id: song.id,
             title: song.title,
             artist: song.user.username,
-            url: song.stream_url + '?client_id=2596b97e0994cfe28ac4f0a9a1f5761a'
+            url: song.stream_url + '?client_id='
           }
         });
       })
