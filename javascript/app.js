@@ -41,10 +41,6 @@
       })
     }
 
-    $scope.playTrack = function(index){
-      soundManager.pauseAll();
-      window.sm2BarPlayers[0].actions.play(index);
-    }
   })
 
   app.directive('modalGallery', function() {
