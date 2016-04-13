@@ -51,4 +51,14 @@
       templateUrl: 'templates/soundmanager.html'
     }
   })
+
 })();
+
+$(document).ready(function() {
+    var $grid = $('.grid').imagesLoaded( function() {
+    $grid.masonry({
+      itemSelector: '.grid-item',
+      columnWidth: '.grid-sizer'
+    });
+  });
+});
