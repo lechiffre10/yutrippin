@@ -46,4 +46,18 @@
       window.sm2BarPlayers[0].actions.play(index);
     }
   })
+
+  app.directive('modalGallery', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'templates/blueimp-gallery.html'
+    }
+  })
+
+  app.directive('soundmanagerContainer', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'templates/soundmanager.html'
+    }
+  })
 })();
