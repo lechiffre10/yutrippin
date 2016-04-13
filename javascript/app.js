@@ -20,11 +20,6 @@
         $scope.flickrPics = $scope.flickrPics.map(function(image){
          return 'https://farm'+ image.farm +'.staticflickr.com/'+ image.server + '/' + image.id + '_' + image.secret +'.jpg';
        })
-      //   $scope.slicedPics = [];
-
-      //   while($scope.flickrPics.length) {
-      //     $scope.slicedPics.push($scope.flickrPics.splice(0,6));
-      //   }
       })
     }
 
