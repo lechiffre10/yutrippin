@@ -20,11 +20,6 @@
         $scope.flickrPics = $scope.flickrPics.map(function(image){
          return 'https://farm'+ image.farm +'.staticflickr.com/'+ image.server + '/' + image.id + '_' + image.secret +'.jpg';
        })
-      //   $scope.slicedPics = [];
-
-      //   while($scope.flickrPics.length) {
-      //     $scope.slicedPics.push($scope.flickrPics.splice(0,6));
-      //   }
       })
     }
 
@@ -41,9 +36,19 @@
       })
     }
 
-    $scope.playTrack = function(index){
-      soundManager.pauseAll();
-      window.sm2BarPlayers[0].actions.play(index);
+  })
+
+  app.directive('modalGallery', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'templates/blueimp-gallery.html'
+    }
+  })
+
+  app.directive('soundmanagerContainer', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'templates/soundmanager.html'
     }
   })
 })();
