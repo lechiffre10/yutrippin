@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
   <link rel="stylesheet" href="CSS/bootstrap-image-gallery.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="CSS/application.css">
 
 </head>
 <body ng-controller="TrippinController">
@@ -19,26 +20,13 @@
 
   <modal-gallery></modal-gallery>
 
-  <section id="photos" >
-    <a ng-href="{{pic}}" ng-repeat="pic in flickrPics" data-gallery>
-      <img class="img img-responsive"ng-src="{{pic}}" >
-    </a>
-  </section>
 
-
-
-  <link rel="stylesheet" type="text/css" href="CSS/bar-ui.css">
-  <script type="text/javascript" src="javascript/lodash.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-  <script type="text/javascript" src='javascript/bower_components/angular-soundmanager2/dist/angular-soundmanager2.js'></script>
-  <script type="text/javascript" src='javascript/bar-ui.js'></script>
-  <script type="text/javascript" src="javascript/angular-route.min.js"></script>
-  <script type="text/javascript" src="javascript/angular-simple-logger.min.js"></script>
-  <script type="text/javascript" src="javascript/angular-google-maps.min.js"></script>
-  <script type="text/javascript" src="javascript/app.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
-  <script src="javascript/bootstrap-image-gallery.min.js"></script>
+  <div class="grid" >
+    <div class="grid-sizer"></div>
+    <div class="grid-item" ng-repeat="pic in flickrPics">
+      <img class="img img-responsive" ng-src="{{pic}}" >
+    </div>
+  </div>
 
   <script>
   soundManager.setup({
@@ -50,6 +38,20 @@
   </script>
 
 <soundmanager-container></soundmanager-container>
+
+  <link rel="stylesheet" type="text/css" href="CSS/bar-ui.css">
+  <script type="text/javascript" src="javascript/lodash.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script type="text/javascript" src='javascript/bower_components/angular-soundmanager2/dist/angular-soundmanager2.js'></script>
+  <script type="text/javascript" src='javascript/bar-ui.js'></script>
+  <script type="text/javascript" src="javascript/angular-route.min.js"></script>
+  <script type="text/javascript" src="javascript/angular-simple-logger.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+  <script src="javascript/bootstrap-image-gallery.min.js"></script>
+  <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.js"></script>
+  <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
+  <script type="text/javascript" src="javascript/app.js"></script>
 
 </body>
 </html>
