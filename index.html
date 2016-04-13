@@ -26,7 +26,6 @@
     <a class="next">›</a>
     <a class="close">×</a>
     <a class="play-pause"></a>
-    <ol class="indicator"></ol>
     <!-- The modal dialog, which will be used to wrap the lightbox content -->
     <div class="modal fade">
       <div class="modal-dialog">
@@ -51,7 +50,7 @@
     </div>
   </div>
 
-  <section id="photos" >
+  <section id="photos" infinite-scroll='loadMore()' infinite-scroll-distance='2'>
     <a ng-href="{{pic}}" ng-repeat="pic in flickrPics" data-gallery>
       <img class="img img-responsive"ng-src="{{pic}}" >
     </a>
@@ -61,6 +60,7 @@
 
   <link rel="stylesheet" type="text/css" href="CSS/bar-ui.css">
   <script type="text/javascript" src="javascript/lodash.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
   <script type="text/javascript" src='javascript/bower_components/angular-soundmanager2/dist/angular-soundmanager2.js'></script>
   <script type="text/javascript" src='javascript/bar-ui.js'></script>
@@ -68,9 +68,9 @@
   <script type="text/javascript" src="javascript/angular-simple-logger.min.js"></script>
   <script type="text/javascript" src="javascript/angular-google-maps.min.js"></script>
   <script type="text/javascript" src="javascript/app.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
   <script src="javascript/bootstrap-image-gallery.min.js"></script>
+  <script src="javascript/ng-infinite-scroll.min.js"></script>
 
   <script>
   soundManager.setup({

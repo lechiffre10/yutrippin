@@ -1,5 +1,5 @@
 (function (){
-	var app = angular.module('yutrippin', ['ngRoute', 'angularSoundManager']);
+	var app = angular.module('yutrippin', ['ngRoute', 'angularSoundManager', 'infinite-scroll']);
 
 
   app.controller('TrippinController', function($scope, $http){
@@ -15,11 +15,11 @@
 
     $scope.fetchPhotos = function(){
       $http.jsonp('https://api.flickr.com/services/rest/?method=flickr.photos.search&text=-virtual -mesh vscocam '+ $scope.query +' -SL&format=json&jsoncallback=JSON_CALLBACK&api_key=&sort=interestingness-desc').then(function(response){
-        console.log(response);
         $scope.flickrPics = response.data.photos.photo;
         $scope.flickrPics = $scope.flickrPics.map(function(image){
          return 'https://farm'+ image.farm +'.staticflickr.com/'+ image.server + '/' + image.id + '_' + image.secret +'.jpg';
        })
+        $scope.page = 1;
       //   $scope.slicedPics = [];
 
       //   while($scope.flickrPics.length) {
@@ -44,6 +44,19 @@
     $scope.playTrack = function(index){
       soundManager.pauseAll();
       window.sm2BarPlayers[0].actions.play(index);
+    }
+
+    $scope.loadMore = function() {
+      if($scope.flickrPics){
+        $scope.page += 1;
+        $http.jsonp('https://api.flickr.com/services/rest/?method=flickr.photos.search&text=-virtual -mesh vscocam '+ $scope.mixTitle +' -SL&format=json&jsoncallback=JSON_CALLBACK&api_key=&sort=interestingness-desc&page=' + $scope.page).then(function(response){
+          var newPics = response.data.photos.photo;
+          newPics = newPics.map(function(image){
+           return 'https://farm'+ image.farm +'.staticflickr.com/'+ image.server + '/' + image.id + '_' + image.secret +'.jpg';
+         })
+          $scope.flickrPics = $scope.flickrPics.concat(newPics);
+        })
+      }
     }
   })
 })();
