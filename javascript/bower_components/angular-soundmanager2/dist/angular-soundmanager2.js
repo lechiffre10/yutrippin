@@ -4964,14 +4964,14 @@ ngSoundManager.directive('immediate', ['angularPlayer', '$timeout',
       restrict: "EA",
       link: function(scope, element, attrs) {
         var addToPlaylist = function() {
-          scope.$watch('sounds',function(newVal){
-            if(newVal){
+            if(scope.changed){
+              scope.currentPlaying = {};
               var trackId = angularPlayer.addTrack(scope.sounds[0]);
+              scope.changed = false;
               $timeout(function(){
                 angularPlayer.playTrack(trackId);
               })
             };
-          })
           }
 
           element.bind('click', function() {

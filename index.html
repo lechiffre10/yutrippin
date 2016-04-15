@@ -16,6 +16,13 @@
     <input type="text" ng-model="query">
     <input type="submit"immediate>
   </form>
+  <select ng-model="mood" ng-change='update()'>
+    <option value=''>---Pick your mood---</option>
+    <option value="hiphop">Hip-Hop</option>
+    <option value="pop">Pop</option>
+    <option value="electronic">Electronic</option>
+    <option value="chillout">Chillout</option>
+  </select>
 
   <div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
     <!-- The container for the modal slides -->
@@ -63,11 +70,11 @@
   <script type="text/javascript" src="javascript/lodash.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
   <script type="text/javascript" src='javascript/bower_components/angular-soundmanager2/dist/angular-soundmanager2.js'></script>
-  <script type="text/javascript"src='javascript/bundle.js'></script>
   <script type="text/javascript" src='javascript/bar-ui.js'></script>
   <script type="text/javascript" src="javascript/angular-route.min.js"></script>
   <script type="text/javascript" src="javascript/angular-simple-logger.min.js"></script>
-  <script type="text/javascript" src="javascript/angular-google-maps.min.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
   <script type="text/javascript" src="javascript/app.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
@@ -83,7 +90,7 @@
   </script>
 
   <sound-manager></sound-manager>
-  <div class="sm2-bar-ui full-width fixed" ng-show="sounds">
+  <div class="sm2-bar-ui full-width fixed" ng-show="playing">
 
    <div class="bd sm2-main-controls">
 
@@ -101,7 +108,7 @@
    <div class="sm2-playlist">
     <div class="sm2-playlist-target">
      <ul>
-       <li><b>{{currentPlaying.title}}</b><span class="label">{{mixTitle}} Mix</span></li>
+       <li><b>{{currentPlaying.title}}</b><span class="label">{{currentPlaying.artist}}</span></li>
      </ul>
      <noscript><p>JavaScript is required.</p></noscript>
    </div>
@@ -166,7 +173,7 @@
  <div class="sm2-playlist-wrapper">
 
   <ul class="sm2-playlist-bd">
-    <li class="song-in-list" ng-repeat="sound in sounds" music-player='play'  add-song="sound" type="audio/mp3"><a><b>{{sound.title}}</b><span class="label">{{mixTitle}} Mix</span></a></li>
+    <li class="song-in-list" ng-repeat="sound in sounds" music-player='play'  add-song="sound" type="audio/mp3"><a><b>{{sound.title}}</b><span class="label">-{{sound.artist}}</span></a></li>
   </ul>
 
 </div>
