@@ -24,39 +24,7 @@
     <option value="chillout">Chillout</option>
   </select>
 
-  <div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
-    <!-- The container for the modal slides -->
-    <div class="slides"></div>
-    <!-- Controls for the borderless lightbox -->
-    <h3 class="title"></h3>
-    <a class="prev">‹</a>
-    <a class="next">›</a>
-    <a class="close">×</a>
-    <a class="play-pause"></a>
-    <ol class="indicator"></ol>
-    <!-- The modal dialog, which will be used to wrap the lightbox content -->
-    <div class="modal fade">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" aria-hidden="true">&times;</button>
-            <h4 class="modal-title"></h4>
-          </div>
-          <div class="modal-body next"></div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default pull-left prev">
-              <i class="glyphicon glyphicon-chevron-left"></i>
-              Previous
-            </button>
-            <button type="button" class="btn btn-primary next">
-              Next
-              <i class="glyphicon glyphicon-chevron-right"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <modal-gallery></modal-gallery>
 
   <section id="photos" >
     <a ng-href="{{pic}}" ng-repeat="pic in flickrPics" data-gallery>
@@ -89,98 +57,8 @@
   });
   </script>
 
-  <sound-manager></sound-manager>
-  <div class="sm2-bar-ui full-width fixed" ng-show="playing">
 
-   <div class="bd sm2-main-controls">
-
-    <div class="sm2-inline-texture"></div>
-    <div class="sm2-inline-gradient"></div>
-
-    <div class="sm2-inline-element sm2-button-element">
-     <div class="sm2-button-bd">
-      <a href="#play" class="sm2-inline-button play-pause paused" ng-class="{playing: isPlaying}" play-pause-toggle>Play / pause</a>
-    </div>
-  </div>
-
-  <div class="sm2-inline-element sm2-inline-status">
-
-   <div class="sm2-playlist">
-    <div class="sm2-playlist-target">
-     <ul>
-       <li><b>{{currentPlaying.title}}</b><span class="label">{{currentPlaying.artist}}</span></li>
-     </ul>
-     <noscript><p>JavaScript is required.</p></noscript>
-   </div>
- </div>
-
- <div class="sm2-progress">
-  <div class="sm2-row">
-    <div class="sm2-inline-time">{{currentPostion}}</div>
-    <div class="sm2-progress-bd">
-      <div class="sm2-progress-track" seek-track>
-       <div class="sm2-progress-bar"></div>
-       <div class="sm2-progress-ball" ng-style="{left : ( progress + '%' ) }"><div class="icon-overlay"></div></div>
-     </div>
-   </div>
-   <div class="sm2-inline-duration">{{currentDuration}}</div>
- </div>
-</div>
-
-</div>
-
-<div class="sm2-inline-element sm2-button-element sm2-volume" mute-music>
- <div class="sm2-button-bd">
-  <span class="sm2-inline-button sm2-volume-control volume-shade"></span>
-  <a class="sm2-inline-button sm2-volume-control" ng-class="{muted: mute, unmuted: !mute}" >volume</a>
-</div>
-</div>
-
-<div class="sm2-inline-element sm2-button-element">
- <div class="sm2-button-bd">
-  <a href="#prev" title="Previous" class="sm2-inline-button previous" prev-track>&lt; previous</a>
-</div>
-</div>
-
-<div class="sm2-inline-element sm2-button-element">
- <div class="sm2-button-bd">
-  <a href="#next" title="Next" class="sm2-inline-button next" next-track>&gt; next</a>
-</div>
-</div>
-
-<div class="sm2-inline-element sm2-button-element">
- <div class="sm2-button-bd">
-  <a href="#repeat" title="Repeat playlist" class="sm2-inline-button repeat" repeat-music>&infin; repeat</a>
-</div>
-</div>
-
-<div class="sm2-inline-element sm2-button-element sm2-menu">
- <div class="sm2-button-bd">
-  <a href="#menu" class="sm2-inline-button menu">menu</a>
-</div>
-</div>
-
-</div>
-
-<div class="bd sm2-playlist-drawer sm2-element">
-
-  <div class="sm2-inline-texture">
-   <div class="sm2-box-shadow"></div>
- </div>
-
- <!-- playlist content is mirrored here -->
-
- <div class="sm2-playlist-wrapper">
-
-  <ul class="sm2-playlist-bd">
-    <li class="song-in-list" ng-repeat="sound in sounds" music-player='play'  add-song="sound" type="audio/mp3"><a><b>{{sound.title}}</b><span class="label">-{{sound.artist}}</span></a></li>
-  </ul>
-
-</div>
-
-</div>
-
-</div>
+<soundmanager-container></soundmanager-container>
 
 
 </body>
