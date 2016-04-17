@@ -17,7 +17,7 @@
    <div class="sm2-playlist">
     <div class="sm2-playlist-target">
      <ul>
-       <li><b>{{currentPlaying.title}}</b><span class="label">{{mixTitle}} Mix</span></li>
+       <li><b>{{currentPlaying.title}}</b><span class="label">{{currentPlaying.artist}}</span></li>
      </ul>
      <noscript><p>JavaScript is required.</p></noscript>
    </div>
@@ -82,7 +82,7 @@
  <div class="sm2-playlist-wrapper">
 
   <ul class="sm2-playlist-bd">
-    <li class="song-in-list" ng-repeat="sound in sounds" music-player='play'  add-song="sound" type="audio/mp3"><a><b>{{sound.title}}</b><span class="label">{{mixTitle}} Mix</span></a></li>
+    <li class="song-in-list" ng-repeat="sound in sounds" music-player='play'  add-song="sound" type="audio/mp3"><a><b>{{sound.title}}</b><span class="label">{{sound.artist}}</span></a></li>
   </ul>
 
 </div>
