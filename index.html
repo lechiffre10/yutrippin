@@ -28,7 +28,7 @@
   <modal-gallery></modal-gallery>
 
 
-  <div masonry preserve-order infinite-scroll='loadMore()' infinite-scroll-distance='2' masonry-options="{ transitionDuration: '0s' }">
+  <div class="grid" id="grid" masonry preserve-order infinite-scroll='loadMore()' infinite-scroll-distance='3' masonry-options="{ transitionDuration: '0s' }">
     <div class="masonry-brick twenty" ng-repeat="pic in flickrPics" >
       <a ng-href="{{pic}}" data-gallery>
         <img class="img img-responsive" ng-src="{{ pic }}" >
@@ -61,6 +61,9 @@
   <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
   <script src="javascript/bootstrap-image-gallery.min.js"></script>
   <script src="javascript/ng-infinite-scroll.min.js"></script>
+  <script src="javascript/modernizr.custom.js"></script>
+  <script src="javascript/classie.js"></script>
+  <script src="javascript/animOnScroll.js"></script>
   <script type="text/javascript" src="javascript/app.js"></script>
 
   <script>
@@ -71,6 +74,8 @@
     }
   });
   </script>
+
+
 
 
 <soundmanager-container></soundmanager-container>
