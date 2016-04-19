@@ -1,5 +1,5 @@
 (function (){
-	var app = angular.module('yutrippin', ['ngRoute', 'angularSoundManager','firebase']);
+	var app = angular.module('yutrippin', ['ngRoute', 'angularSoundManager','firebase', 'wu.masonry', 'infinite-scroll']);
 
 
   app.controller('TrippinController', function($scope, $http,$firebaseArray){
@@ -16,6 +16,7 @@
 
     $scope.search = function(query) {
       $scope.fetchPhotos();
+      $scope.mixTitle = query;
       $scope.query = '';
       $scope.playing = true;
     }
@@ -26,6 +27,7 @@
         $scope.flickrPics = $scope.flickrPics.map(function(image){
          return 'https://farm'+ image.farm +'.staticflickr.com/'+ image.server + '/' + image.id + '_' + image.secret +'.jpg';
        })
+        $scope.page = 1;
       })
     }
 
@@ -39,6 +41,25 @@
         $scope.sounds = $firebaseArray(electronicRef);
       } else{
         $scope.sounds = $firebaseArray(chilloutRef);
+      }
+    }
+
+    $scope.loadMore = function() {
+      if($scope.flickrPics){
+        if($scope.isBusy === true) return; // request in progress, return
+        $scope.isBusy = true;
+        $scope.page += 1;
+        $http.jsonp('https://api.flickr.com/services/rest/?method=flickr.photos.search&text=-virtual -mesh vscocam '+ $scope.mixTitle +' -SL&format=json&jsoncallback=JSON_CALLBACK&api_key=&sort=interestingness-desc&page=' + $scope.page).then(function(response){
+          console.log(response);
+          var newPics = response.data.photos.photo;
+          newPics = newPics.map(function(image){
+           return 'https://farm'+ image.farm +'.staticflickr.com/'+ image.server + '/' + image.id + '_' + image.secret +'.jpg';
+         })
+          console.log($scope.page);
+          console.log(newPics);
+          $scope.isBusy = false;
+          $scope.flickrPics = $scope.flickrPics.concat(newPics);
+        })
       }
     }
   });

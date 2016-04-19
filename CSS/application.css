@@ -1,0 +1,55 @@
+.song-in-list {
+  cursor: pointer;
+  cursor: hand;
+}
+
+.nopadding {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+html, body {
+  background-color: black;
+}
+
+#photos {
+  /* Prevent vertical gaps */
+  line-height: 0;
+
+  -webkit-column-count: 5;
+  -webkit-column-gap:   0px;
+  -moz-column-count:    5;
+  -moz-column-gap:      0px;
+  column-count:         5;
+  column-gap:           0px;
+}
+
+.masonry-brick {
+  width: 20%;
+  border: 5px solid black;
+}
+
+@media (max-width: 1200px) {
+  .masonry-brick {
+  width: 25%;
+}
+}
+@media (max-width: 1000px) {
+  .masonry-brick {
+  width: 33%;
+}
+}
+@media (max-width: 800px) {
+  .masonry-brick {
+  width: 50%;
+}
+}
+@media (max-width: 400px) {
+  .masonry-brick {
+  width: 100%;
+}
+}
+
+
+
+
