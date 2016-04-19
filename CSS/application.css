@@ -1,4 +1,4 @@
-.song-in-list {
+.song-in-list, .sm2-menu {
   cursor: pointer;
   cursor: hand;
 }
@@ -76,6 +76,11 @@ html, body {
 @keyframes flip {
   0% { }
   100% { -webkit-transform: rotateX(0deg); transform: rotateX(0deg); opacity: 1; }
+}
+
+.sm2-bar-ui.fixed .bd.sm2-playlist-drawer.open-drawer {
+  height: 150px;
+  opacity: 1;
 }
 
 

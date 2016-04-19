@@ -90,7 +90,6 @@
       this.itemsCount = this.items.length;
       this.itemsRenderedCount = 0;
       this.didScroll = false;
-      console.log(this.items)
 
 
       var self = this;

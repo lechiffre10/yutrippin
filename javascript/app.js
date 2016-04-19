@@ -107,3 +107,9 @@
     }
   })
 })();
+
+$(document).ready(function() {
+  $('body').on('click', '.sm2-menu', function() {
+    $('.sm2-playlist-drawer').toggleClass('open-drawer');
+  })
+})
