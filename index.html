@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
   <link rel="stylesheet" href="CSS/bootstrap-image-gallery.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="CSS/application.css">
 
 </head>
 <body ng-controller="TrippinController">
@@ -26,27 +27,41 @@
 
   <modal-gallery></modal-gallery>
 
-  <section id="photos" >
-    <a ng-href="{{pic}}" ng-repeat="pic in flickrPics" data-gallery>
-      <img class="img img-responsive"ng-src="{{pic}}" >
-    </a>
-  </section>
+
+  <div masonry preserve-order infinite-scroll='loadMore()' infinite-scroll-distance='2' masonry-options="{ transitionDuration: '0s' }">
+    <div class="masonry-brick twenty" ng-repeat="pic in flickrPics" >
+      <a ng-href="{{pic}}" data-gallery>
+        <img class="img img-responsive" ng-src="{{ pic }}" >
+      </a>
+    </div>
+</div>
 
 
 
   <link rel="stylesheet" type="text/css" href="CSS/bar-ui.css">
   <script type="text/javascript" src="javascript/lodash.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="javascript/bower_components/jquery-bridget/jquery-bridget.js"></script>
+  <script src="javascript/bower_components/ev-emitter/ev-emitter.js"></script>
+  <script src="javascript/bower_components/desandro-matches-selector/matches-selector.js"></script>
+  <script src="javascript/bower_components/fizzy-ui-utils/utils.js"></script>
+  <script src="javascript/bower_components/get-size/get-size.js"></script>
+  <script src="javascript/bower_components/outlayer/item.js"></script>
+  <script src="javascript/bower_components/outlayer/outlayer.js"></script>
+  <script src="javascript/bower_components/masonry/masonry.js"></script>
+  <script src="javascript/bower_components/imagesloaded/imagesloaded.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script src="javascript/bower_components/angular-masonry/angular-masonry.js"></script>
   <script type="text/javascript" src='javascript/bower_components/angular-soundmanager2/dist/angular-soundmanager2.js'></script>
   <script type="text/javascript" src='javascript/bar-ui.js'></script>
   <script type="text/javascript" src="javascript/angular-route.min.js"></script>
   <script type="text/javascript" src="javascript/angular-simple-logger.min.js"></script>
   <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
   <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
-  <script type="text/javascript" src="javascript/app.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
   <script src="javascript/bootstrap-image-gallery.min.js"></script>
+  <script src="javascript/ng-infinite-scroll.min.js"></script>
+  <script type="text/javascript" src="javascript/app.js"></script>
 
   <script>
   soundManager.setup({
