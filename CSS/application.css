@@ -83,6 +83,10 @@ html, body {
   opacity: 1;
 }
 
+.demo {
+  display: table;
+  margin: 0 auto;
+}
 
 
 

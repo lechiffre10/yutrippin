@@ -108,8 +108,46 @@
   })
 })();
 
+
 $(document).ready(function() {
   $('body').on('click', '.sm2-menu', function() {
     $('.sm2-playlist-drawer').toggleClass('open-drawer');
   })
-})
+
+  $('.demo').splitFlap({
+    image: 'image/chars.png',
+    speed: 10
+  });
+
+  setTimeout(function() {
+    $('.destination').splitFlap({
+      image: 'image/chars.png',
+      speed: 10,
+      text: 'Destination'
+      })
+  }, 7000)
+
+  setTimeout(function() {
+    $('.fly').splitFlap({
+      image: 'image/chars.png',
+      speed: 10,
+      text: 'Fly ',
+      textInit: 'Pick'
+    })
+
+    $('.away').splitFlap({
+      image: 'image/chars.png',
+      speed: 10,
+      text: 'Away',
+      textInit: 'Your'
+    })
+
+    $('.destination').splitFlap({
+      image: 'image/chars.png',
+      speed: 10,
+      text: '           ',
+      textInit: 'Destination'
+    })
+  }, 14000)
+
+});
