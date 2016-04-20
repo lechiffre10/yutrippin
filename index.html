@@ -24,6 +24,12 @@
     <option value="electronic">Electronic</option>
     <option value="chillout">Chillout</option>
   </select>
+  <div ng-hide="playing">
+    <div class="demo fly">Pick</div>
+    <div class="demo away">Your</div>
+    <div class="demo destination">    Mood    </div>
+  </div>
+
 
   <modal-gallery></modal-gallery>
 
@@ -34,7 +40,7 @@
         <img class="img img-responsive" ng-src="{{ pic }}" >
       </a>
     </div>
-</div>
+  </div>
 
 
 
@@ -53,7 +59,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
   <script src="javascript/bower_components/angular-masonry/angular-masonry.js"></script>
   <script type="text/javascript" src='javascript/bower_components/angular-soundmanager2/dist/angular-soundmanager2.js'></script>
-  <script type="text/javascript" src='javascript/bar-ui.js'></script>
+  <script type="text/javascript" src='javascript/splitflap.js'></script>
   <script type="text/javascript" src="javascript/angular-route.min.js"></script>
   <script type="text/javascript" src="javascript/angular-simple-logger.min.js"></script>
   <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
@@ -67,18 +73,18 @@
   <script type="text/javascript" src="javascript/app.js"></script>
 
   <script>
-  soundManager.setup({
-    url: 'javascript/swf',
-    flashVersion: 9,
-    onready: function(){
-    }
-  });
+    soundManager.setup({
+      url: 'javascript/swf',
+      flashVersion: 9,
+      onready: function(){
+      }
+    });
   </script>
 
 
 
 
-<soundmanager-container></soundmanager-container>
+  <soundmanager-container></soundmanager-container>
 
 
 </body>
