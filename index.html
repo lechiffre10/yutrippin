@@ -1,90 +1,96 @@
 <!DOCTYPE html>
 <html ng-app="yutrippin">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<link rel="stylesheet" href="">
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
-  <link rel="stylesheet" href="CSS/bootstrap-image-gallery.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="CSS/application.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="CSS/bootstrap-image-gallery.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="CSS/application.css">
 
 </head>
 <body ng-controller="TrippinController">
-  <form ng-submit="search(query)">
-    <input type="text" ng-model="query">
-    <input type="submit"immediate>
-  </form>
-  <select ng-model="mood" ng-change='update()'>
-    <option value=''>---Pick your mood---</option>
-    <option value="hiphop">Hip-Hop</option>
-    <option value="pop">Pop</option>
-    <option value="electronic">Electronic</option>
-    <option value="chillout">Chillout</option>
-  </select>
-  <div ng-hide="playing">
-    <div class="demo fly">Pick</div>
-    <div class="demo away">Your</div>
-    <div class="demo destination">    Mood    </div>
-  </div>
-
-
-  <modal-gallery></modal-gallery>
-
-
-  <div class="grid" id="grid" masonry preserve-order infinite-scroll='loadMore()' infinite-scroll-distance='3' masonry-options="{ transitionDuration: '0s' }">
-    <div class="masonry-brick twenty" ng-repeat="pic in flickrPics" >
-      <a ng-href="{{pic}}" data-gallery>
-        <img class="img img-responsive" ng-src="{{ pic }}" >
-      </a>
+<div id="container">
+    <video id="background_video" autoplay muted loop>
+        <source src="http://s3-us-west-2.amazonaws.com/yutrippin/plane-fly-over-slow_-1at8iygs__D.mp4"
+                type="video/mp4">
+    </video>
+    <form ng-submit="search(query)">
+        <input type="text" ng-model="query">
+        <input type="submit" immediate>
+    </form>
+    <select ng-model="mood" ng-change='update()'>
+        <option value=''>---Pick your mood---</option>
+        <option value="hiphop">Hip-Hop</option>
+        <option value="pop">Pop</option>
+        <option value="electronic">Electronic</option>
+        <option value="chillout">Chillout</option>
+    </select>
+    <div ng-hide="playing">
+        <div class="demo fly">Pick</div>
+        <div class="demo away">Your</div>
+        <div class="demo destination"> Mood</div>
     </div>
-  </div>
 
 
+    <modal-gallery></modal-gallery>
 
-  <link rel="stylesheet" type="text/css" href="CSS/bar-ui.css">
-  <script type="text/javascript" src="javascript/lodash.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="javascript/bower_components/jquery-bridget/jquery-bridget.js"></script>
-  <script src="javascript/bower_components/ev-emitter/ev-emitter.js"></script>
-  <script src="javascript/bower_components/desandro-matches-selector/matches-selector.js"></script>
-  <script src="javascript/bower_components/fizzy-ui-utils/utils.js"></script>
-  <script src="javascript/bower_components/get-size/get-size.js"></script>
-  <script src="javascript/bower_components/outlayer/item.js"></script>
-  <script src="javascript/bower_components/outlayer/outlayer.js"></script>
-  <script src="javascript/bower_components/masonry/masonry.js"></script>
-  <script src="javascript/bower_components/imagesloaded/imagesloaded.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-  <script src="javascript/bower_components/angular-masonry/angular-masonry.js"></script>
-  <script type="text/javascript" src='javascript/bower_components/angular-soundmanager2/dist/angular-soundmanager2.js'></script>
-  <script type="text/javascript" src='javascript/splitflap.js'></script>
-  <script type="text/javascript" src="javascript/angular-route.min.js"></script>
-  <script type="text/javascript" src="javascript/angular-simple-logger.min.js"></script>
-  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
-  <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
-  <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
-  <script src="javascript/bootstrap-image-gallery.min.js"></script>
-  <script src="javascript/ng-infinite-scroll.min.js"></script>
-  <script src="javascript/modernizr.custom.js"></script>
-  <script src="javascript/classie.js"></script>
-  <script src="javascript/animOnScroll.js"></script>
-  <script type="text/javascript" src="javascript/app.js"></script>
 
-  <script>
+    <div class="grid" id="grid" masonry preserve-order infinite-scroll='loadMore()' infinite-scroll-distance='3'
+         masonry-options="{ transitionDuration: '0s' }">
+        <div class="masonry-brick twenty" ng-repeat="pic in flickrPics">
+            <a ng-href="{{pic}}" data-gallery>
+                <img class="img img-responsive" ng-src="{{ pic }}">
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<link rel="stylesheet" type="text/css" href="CSS/bar-ui.css">
+<script type="text/javascript" src="javascript/lodash.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="javascript/bower_components/jquery-bridget/jquery-bridget.js"></script>
+<script src="javascript/bower_components/ev-emitter/ev-emitter.js"></script>
+<script src="javascript/bower_components/desandro-matches-selector/matches-selector.js"></script>
+<script src="javascript/bower_components/fizzy-ui-utils/utils.js"></script>
+<script src="javascript/bower_components/get-size/get-size.js"></script>
+<script src="javascript/bower_components/outlayer/item.js"></script>
+<script src="javascript/bower_components/outlayer/outlayer.js"></script>
+<script src="javascript/bower_components/masonry/masonry.js"></script>
+<script src="javascript/bower_components/imagesloaded/imagesloaded.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+<script src="javascript/bower_components/angular-masonry/angular-masonry.js"></script>
+<script type="text/javascript"
+        src='javascript/bower_components/angular-soundmanager2/dist/angular-soundmanager2.js'></script>
+<script type="text/javascript" src='javascript/splitflap.js'></script>
+<script type="text/javascript" src="javascript/angular-route.min.js"></script>
+<script type="text/javascript" src="javascript/angular-simple-logger.min.js"></script>
+<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+<script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+<script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<script src="javascript/bootstrap-image-gallery.min.js"></script>
+<script src="javascript/ng-infinite-scroll.min.js"></script>
+<script src="javascript/modernizr.custom.js"></script>
+<script src="javascript/classie.js"></script>
+<script src="javascript/animOnScroll.js"></script>
+<script src="javascript/bideo.js"></script>
+<script type="text/javascript" src="javascript/app.js"></script>
+
+<script>
     soundManager.setup({
-      url: 'javascript/swf',
-      flashVersion: 9,
-      onready: function(){
-      }
+        url: 'javascript/swf',
+        flashVersion: 9,
+        onready: function () {
+        }
     });
-  </script>
+</script>
 
 
-
-
-  <soundmanager-container></soundmanager-container>
+<soundmanager-container></soundmanager-container>
 
 
 </body>
