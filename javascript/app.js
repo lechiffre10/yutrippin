@@ -115,39 +115,39 @@ $(document).ready(function() {
   })
 
   $('.demo').splitFlap({
-    image: 'image/chars.png',
+    image: 'image/yutrippin.png',
     speed: 10
   });
 
   setTimeout(function() {
     $('.destination').splitFlap({
-      image: 'image/chars.png',
+      image: 'image/yutrippin.png',
       speed: 10,
       text: 'Destination'
       })
-  }, 7000)
+  }, 5000)
 
   setTimeout(function() {
     $('.fly').splitFlap({
-      image: 'image/chars.png',
+      image: 'image/yutrippin.png',
       speed: 10,
-      text: 'Fly ',
+      text: 'Fly',
       textInit: 'Pick'
     })
 
     $('.away').splitFlap({
-      image: 'image/chars.png',
+      image: 'image/yutrippin.png',
       speed: 10,
       text: 'Away',
       textInit: 'Your'
     })
 
     $('.destination').splitFlap({
-      image: 'image/chars.png',
+      image: 'image/yutrippin.png',
       speed: 10,
       text: '           ',
       textInit: 'Destination'
     })
-  }, 14000)
+  }, 10000)
 
 });

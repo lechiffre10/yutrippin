@@ -19,7 +19,7 @@
                 type="video/mp4">
     </video>
     <form ng-submit="search(query)">
-        <input type="text" ng-model="query" placeholder="Pick your destination...">
+        <input type="text" ng-model="query" placeholder="I want to visit...">
     </form>
     <select ng-model="mood" ng-change='update()' style="font-family: 'FontAwesome', Helvetica;">
         <option value=''>&#xf025; Mood</option>
@@ -28,11 +28,11 @@
         <option value="electronic">Electronic</option>
         <option value="chillout">Chillout</option>
     </select>
-   <!--  <div ng-hide="playing">
+    <div ng-hide="playing">
         <div class="demo fly">Pick</div>
         <div class="demo away">Your</div>
-        <div class="demo destination"> Mood</div>
-    </div> -->
+        <div class="demo destination">Mood</div>
+    </div>
 
 
     <modal-gallery></modal-gallery>
