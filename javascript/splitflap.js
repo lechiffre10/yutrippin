@@ -370,11 +370,11 @@
     }
 
     var settings = $.extend({
-      image:          'images/chars.png',
+      image:          'images/yutrippin.png',
       imageSize:      '',
-      charsMap:       'ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789.,!?#@()+-=',
-      charWidth:      50,
-      charHeight:     100,
+      charsMap:       'ADCKEFILMNOPRSTWUY ',
+      charWidth:      69.1,
+      charHeight:     101,
       charSubstitute: ' ',
       padDir:         'left',
       padChar:        ' ',
