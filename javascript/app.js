@@ -21,6 +21,7 @@
           maxDuration : 0.7,
           viewportFactor : 0.2
        } )
+        $('#container').css('position', 'static');
       })
     }
 
