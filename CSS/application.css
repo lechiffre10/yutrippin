@@ -135,6 +135,11 @@ select {
     -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.85);
     -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.85);
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.85);
+    display:block;
+    margin: 0 auto;
+    top: 50%;
+    left: 45%;
+    position: absolute;
 }
 
 input[type='text'] {
@@ -149,7 +154,7 @@ form {
     text-align:center;
     margin: 0 auto;
     width: 20%;
-    top: 55%;
+    top: 40%;
     left: 40%;
     position: absolute;
 }
