@@ -19,11 +19,10 @@
                 type="video/mp4">
     </video>
     <form ng-submit="search(query)">
-        <input type="text" ng-model="query">
-        <input type="submit" immediate>
+        <input type="text" ng-model="query" placeholder="Pick your destination...">
     </form>
-    <select ng-model="mood" ng-change='update()'>
-        <option value=''>---Pick your mood---</option>
+    <select ng-model="mood" ng-change='update()' style="font-family: 'FontAwesome', Helvetica;">
+        <option value=''>&#xf025; Mood</option>
         <option value="hiphop">Hip-Hop</option>
         <option value="pop">Pop</option>
         <option value="electronic">Electronic</option>

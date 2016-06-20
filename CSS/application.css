@@ -118,3 +118,38 @@ html, body {
     width: 100%;
     z-index: -1;
 }
+
+select {
+    font-weight: bold;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+    text-align-last: center;
+    background: #2980b9;
+    padding: 5px 30px 5px 5px;
+    font-size: 18px;
+    -webkit-appearance: none;
+    -webkit-border-style: none;
+    -moz-appearance: none;
+    text-shadow: 2px 2px 4px #000000;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.85);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.85);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.85);
+}
+
+input[type='text'] {
+    text-align: center;
+    height: 1.75em;
+    width: 100%;
+    border-radius: 15px;
+    font-size: 1.5em;
+    outline: none;
+}
+form {
+    text-align:center;
+    margin: 0 auto;
+    width: 20%;
+    top: 55%;
+    left: 40%;
+    position: absolute;
+}
