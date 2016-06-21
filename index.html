@@ -18,8 +18,9 @@
         <source src="http://s3-us-west-2.amazonaws.com/yutrippin/plane-flying-at-sunset_MkUG-OG_.mp4"
                 type="video/mp4">
     </video>
-    <form ng-submit="search(query)" immediate>
+    <form ng-submit="search(query)">
         <input type="text" ng-model="query" placeholder="I want to visit...">
+        <input type="submit" immediate style="display:none">
     </form>
     <select ng-model="mood" ng-change='update()' style="font-family: 'FontAwesome', Helvetica;">
         <option value=''>&#xf025; Mood</option>
