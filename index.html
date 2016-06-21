@@ -40,7 +40,7 @@
     <modal-gallery></modal-gallery>
 
 
-    <div class="grid" id="grid" masonry preserve-order infinite-scroll='loadMore()' infinite-scroll-distance='3'
+    <div ng-show="backButton" class="grid" id="grid" masonry preserve-order infinite-scroll='loadMore()' infinite-scroll-distance='3'
          masonry-options="{ transitionDuration: '0s' }">
         <div class="masonry-brick twenty" ng-repeat="pic in flickrPics">
             <a ng-href="{{pic}}" data-gallery>
