@@ -158,3 +158,21 @@ form {
     left: 40%;
     position: absolute;
 }
+
+#search-again {
+  position: fixed;
+  z-index: 1;
+  font-size: 2em;
+  background-color: #253C6F;
+  color: white;
+  border-radius: 100%;
+  height: 2em;
+  width: 2em;
+  top: 1em;
+  left: 1em;
+}
+
+#search-again:hover {
+  color: white;
+  background-color: #1B6A5B;
+}
