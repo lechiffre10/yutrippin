@@ -10,6 +10,7 @@
 
     $scope.query = '';
     $scope.mood = '';
+    $scope.backButton = false;
     $scope.changed = true;
     $scope.sounds = $firebaseArray(hipHopRef);
 
@@ -25,6 +26,12 @@
       })
     }
 
+    $scope.searchAgain = function() {
+      $scope.backButton = false;
+      $scope.flickrPics =[];
+      $('#container').css('position', 'absolute');
+    }
+
     $scope.searchFunctions = function(query) {
       var deferred = $q.defer();
 
@@ -32,6 +39,7 @@
       return $scope.fetchPhotos().then(function(success) {
         $scope.query = '';
         $scope.playing = true;
+        $scope.backButton = true;
 
         $timeout(function(){
           deferred.resolve();

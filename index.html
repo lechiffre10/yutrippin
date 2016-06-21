@@ -13,6 +13,7 @@
 
 </head>
 <body ng-controller="TrippinController">
+<button ng-click="searchAgain()" ng-show="backButton" id="search-again"><i class="fa fa-plane" aria-hidden="true"></i></button>
 <div id="container">
     <video id="background_video" autoplay muted loop>
         <source src="http://s3-us-west-2.amazonaws.com/yutrippin/plane-flying-at-sunset_MkUG-OG_.mp4"
@@ -29,7 +30,7 @@
         <option value="electronic">Electronic</option>
         <option value="chillout">Chillout</option>
     </select>
-    <div ng-hide="playing">
+    <div ng-hide="backButton">
         <div class="demo fly">Pick</div>
         <div class="demo away">Your</div>
         <div class="demo destination">Mood</div>
